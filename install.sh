@@ -34,6 +34,13 @@ function check_golang() {
     echo 'export GOPATH=$HOME/go' >> ~/.zshrc
     echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.zshrc
     source ~/.zshrc
+
+    # 安装 go tools
+    go install github.com/go-delve/delve/cmd/dlv@latest
+    go install mvdan.cc/gofumpt@latest
+    go install golang.org/x/tools/gopls@latest
+    go install github.com/mgechev/revive@latest
+
 }
 
 # 检查 rust 是否安装，如果没有安装则使用 安装
