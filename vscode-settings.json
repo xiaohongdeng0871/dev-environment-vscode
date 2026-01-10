@@ -1,88 +1,86 @@
 {
-    //关闭行内作者信息
-    "gitlens.codeLens.enabled": false,
-    "editor.fontSize": 14,
-    "workbench.colorTheme": "Monokai Pro",
-    "files.autoSave": "onFocusChange",
+  //关闭行内作者信息
+  "gitlens.codeLens.enabled": false,
+  "git.autofetch": true,
 
-    // ----- FORMAT CONFIGURATION -----
-    "editor.formatOnPaste": true, //控制编辑器自动格式化粘贴的内容。
-    "editor.formatOnType": true, //控制编辑器在键入一行后自动格式化该行。
-    "editor.formatOnSaveMode": "file",
-    "[json]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[yaml]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+  "editor.fontSize": 14,
+  "workbench.colorTheme": "Monokai Pro",
+  "files.autoSave": "onFocusChange",
 
+  // ----- FORMAT CONFIGURATION -----
+  "editor.formatOnPaste": true, //控制编辑器自动格式化粘贴的内容。
+  "editor.formatOnType": true, //控制编辑器在键入一行后自动格式化该行。
+  "editor.formatOnSaveMode": "file",
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
 
-    // ----- GO CONFIGURATION -----
-    "gopls": {
-        // 使用 gopls 提供的静态分析工具，性能更好
-        "ui.diagnostic.staticcheck": true,
-        "ui.semanticTokens": true, // 开启更丰富的语法高亮
-        "formatting.gofumpt": true, // 使用 gofumpt 格式化代码
+  // ----- GO CONFIGURATION -----
+  "gopls": {
+    // 使用 gopls 提供的静态分析工具，性能更好
+    "ui.diagnostic.staticcheck": true,
+    "ui.semanticTokens": true, // 开启更丰富的语法高亮
+    "formatting.gofumpt": true // 使用 gofumpt 格式化代码
+  },
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      // 保存时自动整理 import
+      "source.organizeImports": "explicit"
     },
-    "[go]": {
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            // 保存时自动整理 import
-            "source.organizeImports": "explicit",
-        },
-        // 推荐使用 gofumpt，比 gofmt 更严格的格式化标准
-        "editor.defaultFormatter": "golang.go"
-    },
-    "go.formatTool": "default",
-    "go.lintOnSave": "workspace",
-    // 推荐使用 revive，它是 golint 的优秀继任者
-    "go.lintTool": "revive",
-    "go.useLanguageServer": true,
-    // 自动更新 Go 依赖的工具
-    "go.toolsManagement.autoUpdate": true,
+    // 推荐使用 gofumpt，比 gofmt 更严格的格式化标准
+    "editor.defaultFormatter": "golang.go"
+  },
+  "go.formatTool": "default",
+  "go.lintOnSave": "workspace",
+  // 推荐使用 revive，它是 golint 的优秀继任者
+  "go.lintTool": "revive",
+  "go.useLanguageServer": true,
+  // 自动更新 Go 依赖的工具
+  "go.toolsManagement.autoUpdate": true,
 
+  // ----- PYTHON CONFIGURATION -----
+  "[python]": {
+    // 使用 Ruff 作为格式化和代码操作的源
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      // 保存时自动修复可修复的 lint 问题和整理 import
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "python.languageServer": "Pylance", // Pylance 提供了最优秀的类型检查和自动补全
+  // 如果你使用 conda
+  "python.condaPath": "/opt/homebrew/Caskroom/miniconda/base/bin/conda", // 替换成你自己的 conda 路径
 
-     // ----- PYTHON CONFIGURATION -----
-    "[python]": {
-        // 使用 Ruff 作为格式化和代码操作的源
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            // 保存时自动修复可修复的 lint 问题和整理 import
-            "source.fixAll": "explicit",
-            "source.organizeImports": "explicit"
-        }
-    },
-    "python.languageServer": "Pylance", // Pylance 提供了最优秀的类型检查和自动补全
-    // 如果你使用 conda
-    "python.condaPath": "/opt/homebrew/Caskroom/miniconda/base/bin/conda", // 替换成你自己的 conda 路径
-   
-    
-    // Ruff 插件的配置
-    "ruff.importStrategy": "fromEnvironment", // 确保使用激活环境中的 Ruff,
-    "ruff.organizeImports": true,
-    "ruff.fixAll": true,
+  // Ruff 插件的配置
+  "ruff.importStrategy": "fromEnvironment", // 确保使用激活环境中的 Ruff,
+  "ruff.organizeImports": true,
+  "ruff.fixAll": true,
 
+  // ----- RUST CONFIGURATION -----
+  "[rust]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.check.command": "clippy", // 使用 clippy 进行更严格的检查
+  "rust-analyzer.check.allTargets": false, // 只检查当前 target，加快速度
+  "rust-analyzer.cargo.buildScripts.enable": true, // 启用对 build.rs 的支持
+  "rust-analyzer.procMacro.enable": true, // 启用过程宏支持
 
-    // ----- RUST CONFIGURATION -----
-    "[rust]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "rust-lang.rust-analyzer"
-    },
-    "rust-analyzer.check.command": "clippy",// 使用 clippy 进行更严格的检查
-    "rust-analyzer.check.allTargets": false,// 只检查当前 target，加快速度
-    "rust-analyzer.cargo.buildScripts.enable": true, // 启用对 build.rs 的支持
-    "rust-analyzer.procMacro.enable": true, // 启用过程宏支持
-    
-    // 强大的内联提示，强烈推荐开启
-    "rust-analyzer.inlayHints.typeHints.enable": true,
-    "rust-analyzer.inlayHints.chainingHints.enable": true,
-    "rust-analyzer.inlayHints.parameterHints.enable": true,
-    "rust-analyzer.inlayHints.closingBraceHints.enable": true
+  // 强大的内联提示，强烈推荐开启
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "rust-analyzer.inlayHints.chainingHints.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": true
 }
