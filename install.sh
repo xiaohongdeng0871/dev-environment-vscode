@@ -98,7 +98,7 @@ function check_nodejs() {
 
 function main() {
     echo "Installing..."
-    sh iterm-lwzsz.sh 
+    sh iterm-lrzsz.sh 
     check_zshrc
     check_brew
     check_golang
