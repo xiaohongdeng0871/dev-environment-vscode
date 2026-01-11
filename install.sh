@@ -85,6 +85,17 @@ function check_vscode() {
     cp -r vscode-settings.json ~/Library/Application\ Support/Code/User/settings.json
 }
 
+function check_nodejs() {
+    if [ ! -x "$(command -v node)" ]; then
+        echo "Node.js not installed, installing via Homebrew..."
+        brew install node
+    fi
+    
+    # 配置 npm 全局路径
+    echo 'export PATH=$PATH:$(npm config get prefix)/bin' >> ~/.zshrc
+    source ~/.zshrc
+}
+
 function main() {
     echo "Installing..."
     sh iterm-lwzsz.sh 
@@ -94,6 +105,7 @@ function main() {
     check_rust
     check_minicode
     check_vscode
+    check_nodejs
 }
 
 main
