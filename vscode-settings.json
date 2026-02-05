@@ -4,6 +4,7 @@
   "git.autofetch": true,
 
   "editor.fontSize": 14,
+  "window.zoomLevel": 0,
   "workbench.colorTheme": "Monokai Pro",
   "files.autoSave": "onFocusChange",
 
